@@ -2,7 +2,6 @@
 
 namespace Joelharkes\LaravelStrictValidation\Tests;
 
-use Illuminate\Translation\ArrayLoader;
 use Illuminate\Translation\Translator;
 use Illuminate\Validation\Validator;
 use Joelharkes\LaravelStrictValidation\Rules\ValidFloat;
@@ -13,7 +12,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @coversNothing
  */
-class ValidFloatTest extends TestCase
+class ValidFloatTest extends BaseTest
 {
     public function testPassesForNumericString(): void
     {
@@ -68,15 +67,4 @@ class ValidFloatTest extends TestCase
         $this->assertSame(1, $validator->errors()->count());
     }
 
-    protected function validaterFor($rule, $data): Validator
-    {
-        return $this->validator(['input' => [$rule]], ['input' => $data]);
-    }
-
-    protected function validator(array $rules, array $data): Validator
-    {
-        $translator = new Translator(new ArrayLoader(), 'en');
-
-        return new Validator($translator, $data, $rules);
-    }
 }
