@@ -2,10 +2,7 @@
 
 namespace Joelharkes\LaravelStrictValidation\Tests;
 
-use Illuminate\Translation\Translator;
-use Illuminate\Validation\Validator;
 use Joelharkes\LaravelStrictValidation\Rules\ValidFloat;
-use PHPUnit\Framework\TestCase;
 
 /**
  * @internal
@@ -66,5 +63,4 @@ class ValidFloatTest extends BaseTest
         $this->assertSame('validation.between.numeric', $validator->errors()->first('input'));
         $this->assertSame(1, $validator->errors()->count());
     }
-
 }

@@ -22,5 +22,4 @@ abstract class BaseTest extends TestCase
 
         return new Validator($translator, $data, $rules);
     }
-
 }

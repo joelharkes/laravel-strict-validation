@@ -4,6 +4,11 @@ namespace Joelharkes\LaravelStrictValidation\Tests;
 
 use Joelharkes\LaravelStrictValidation\Rules\ValidInteger;
 
+/**
+ * @internal
+ *
+ * @coversNothing
+ */
 class ValidIntegerTest extends BaseTest
 {
     public function testPassesForInteger(): void
@@ -12,6 +17,7 @@ class ValidIntegerTest extends BaseTest
         $this->assertTrue($validator->passes());
         $this->assertSame(10, $validator->validated()['input']);
     }
+
     public function testPassesForNumericString(): void
     {
         $validator = $this->validaterFor(new ValidInteger(), '10');

@@ -10,6 +10,11 @@ class ValidInteger extends BaseRule implements \JsonSerializable
     {
     }
 
+    public function __toString()
+    {
+        return 'integer';
+    }
+
     public function validate(string $attribute, mixed $value, \Closure $fail): void
     {
         if (is_int($value)) {
@@ -40,12 +45,6 @@ class ValidInteger extends BaseRule implements \JsonSerializable
 
         $this->modifyValue($attribute, $intValue);
     }
-
-    public function __toString()
-    {
-        return 'integer';
-    }
-
 
     public function jsonSerialize(): array
     {
