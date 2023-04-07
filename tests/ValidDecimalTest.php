@@ -17,14 +17,21 @@ class ValidDecimalTest extends BaseTest
     {
         $validator = $this->validaterFor(new ValidDecimal(), 10);
         $this->assertTrue($validator->passes());
-        $this->assertSame(10, $validator->validated()['input']);
+        $this->assertSame(10.0, $validator->validated()['input']);
     }
 
     public function testPassesForNumericString(): void
     {
         $validator = $this->validaterFor(new ValidDecimal(), '10');
         $this->assertTrue($validator->passes());
-        $this->assertSame(10, $validator->validated()['input']);
+        $this->assertSame(10.0, $validator->validated()['input']);
+    }
+
+    public function testPassesForFloat(): void
+    {
+        $validator = $this->validaterFor(new ValidDecimal(), 10.0);
+        $this->assertTrue($validator->passes());
+        $this->assertSame(10.0, $validator->validated()['input']);
     }
 
     public function testTooBigAnInteger(): void
