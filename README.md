@@ -37,7 +37,7 @@ namespace Joelharkes\LaravelStrictValidation\Rules;
 new ValidFloat();
 new ValidDatetime();
 new ValidInteger();
-new ValidIn(); // make sure value is exactly the same as in the given array.
+new ValidIn(['option1', 'option2']); // make sure value is exactly the same as in the given array.
 ```
 - 
 - ValidDatetime

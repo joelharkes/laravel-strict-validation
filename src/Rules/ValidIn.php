@@ -7,7 +7,7 @@ namespace Joelharkes\LaravelStrictValidation\Rules;
 use Illuminate\Support\ItemNotFoundException;
 use Illuminate\Support\LazyCollection;
 
-class ValidIn extends BaseRule
+class ValidIn extends BaseRule implements \JsonSerializable
 {
     public static bool $strictCheck = false;
 
@@ -34,5 +34,18 @@ class ValidIn extends BaseRule
         if ($foundValue !== $value) {
             $this->modifyValue($attribute, $foundValue);
         }
+    }
+
+    public function jsonSerialize(): array
+    {
+        return [
+            'name' => 'in',
+            'values' => $this->values,
+        ];
+    }
+
+    public function __toString()
+    {
+        return 'in:' . LazyCollection::make($this->values)->implode(',');
     }
 }
