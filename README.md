@@ -7,7 +7,7 @@
 
 ``` php
 $data = $request->validate(['input' => [new ValidFloat()]);
-is_float($data['input']); // now is always true even if string "10"  is included.
+is_float($data['input']); // true, even when input was "10" string.
 ```
 
 If you want to learn how to create reusable PHP packages yourself, take a look at my upcoming [PHP Package Development](https://phppackagedevelopment.com) video course.
