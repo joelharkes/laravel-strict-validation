@@ -7,8 +7,8 @@ namespace Joelharkes\LaravelStrictValidation\Rules;
 class ValidFloat extends BaseRule implements \JsonSerializable
 {
     public function __construct(
-        private ?float $min = null,
-        private ?float $max = null
+        private readonly ?float $min = null,
+        private readonly ?float $max = null
     ) {
         if (null !== $min && null !== $max && $min > $max) {
             throw new \InvalidArgumentException('argument min cannot be bigger than max');

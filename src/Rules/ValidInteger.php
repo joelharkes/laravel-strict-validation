@@ -6,7 +6,7 @@ namespace Joelharkes\LaravelStrictValidation\Rules;
 
 class ValidInteger extends BaseRule implements \JsonSerializable
 {
-    public function __construct(private ?int $min = null, private ?int $max = null)
+    public function __construct(private readonly ?int $min = null, private readonly ?int $max = null)
     {
     }
 

@@ -11,7 +11,7 @@ class ValidIn extends BaseRule implements \JsonSerializable
 {
     public static bool $strictCheck = false;
 
-    public function __construct(private iterable $values)
+    public function __construct(private readonly iterable $values)
     {
     }
 

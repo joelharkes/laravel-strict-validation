@@ -10,7 +10,7 @@ class ValidDecimal extends BaseRule implements \JsonSerializable
      * @param int $integerDigits the number of digits allowed for the integer part
      * @param int $decimalDigits the number of digits allowed for the decimal part
      */
-    public function __construct(private int $integerDigits = 6, private int $decimalDigits = 2)
+    public function __construct(private readonly int $integerDigits = 6, private readonly int $decimalDigits = 2)
     {
     }
 
