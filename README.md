@@ -34,10 +34,11 @@ $this->validate($request, ['input' => [new ValidCarbon()]); // input is always C
 
 ```php
 namespace Joelharkes\LaravelStrictValidation\Rules;
-new ValidFloat();
 new ValidDatetime();
-new ValidInteger();
+new ValidDecimal($digits, $decimals);
+new ValidFloat();
 new ValidIn(['option1', 'option2']); // make sure value is exactly the same as in the given array.
+new ValidInteger();
 ```
 - 
 - ValidDatetime
