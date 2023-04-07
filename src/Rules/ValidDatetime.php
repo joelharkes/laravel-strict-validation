@@ -25,22 +25,17 @@ class ValidDatetime extends BaseRule implements \JsonSerializable
             return;
         }
 
-        $validDate = false;
-
         try {
             $datetime = new Carbon($value);
-
-            $validDate = checkdate($datetime->month, $datetime->day, $datetime->year) && $datetime->year >= 1900 && $datetime->year < 2200;
-            if ($validDate) {
-                $this->modifyValue($attribute, $datetime);
-            }
-        } catch (\Throwable $ex) {
-        }
-        if (!$validDate) {
+        } catch (\Throwable) {
             $fail($attribute, $this->translate('validation.datetime'));
-
             return;
         }
+        if (!checkdate($datetime->month, $datetime->day, $datetime->year)) {
+            $fail($attribute, $this->translate('validation.datetime'));
+            return;
+        }
+        $this->modifyValue($attribute, $datetime);
     }
 
     public function jsonSerialize(): array
