@@ -22,7 +22,7 @@ class ValidFloat extends BaseRule implements \JsonSerializable
 
     public function validate(string $attribute, mixed $value, \Closure $fail): void
     {
-        if (is_float($value)) {
+        if (is_float($value) || is_null($value)) {
             return;
         }
         if (false === filter_var($value, FILTER_VALIDATE_FLOAT)) {

@@ -45,4 +45,11 @@ class ValidIntegerTest extends BaseTest
         $validator = $this->validaterFor(new ValidInteger(), 10.2);
         $this->assertTrue($validator->fails());
     }
+
+    public function testPassesForNull(): void
+    {
+        $validator = $this->validaterFor(new ValidInteger(), null);
+        $this->assertTrue($validator->passes());
+        $this->assertNull($validator->validated()['input']);
+    }
 }

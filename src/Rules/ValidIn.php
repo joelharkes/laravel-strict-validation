@@ -17,6 +17,9 @@ class ValidIn extends BaseRule
 
     public function validate(string $attribute, mixed $value, \Closure $fail): void
     {
+        if (is_null($value)) {
+            return;
+        }
         $collection = new LazyCollection($this->values);
         $check = self::$strictCheck ? fn ($item) => $item === $value : fn ($item) => $item == $value;
 

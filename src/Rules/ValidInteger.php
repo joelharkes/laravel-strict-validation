@@ -17,7 +17,7 @@ class ValidInteger extends BaseRule implements \JsonSerializable
 
     public function validate(string $attribute, mixed $value, \Closure $fail): void
     {
-        if (is_int($value)) {
+        if (is_int($value) || is_null($value)) {
             return;
         }
         if (false === filter_var($value, FILTER_VALIDATE_INT)) {

@@ -15,6 +15,9 @@ class ValidDatetime extends BaseRule implements \JsonSerializable
 
     public function validate(string $attribute, mixed $value, \Closure $fail): void
     {
+        if (is_null($value)) {
+            return;
+        }
         if ($value instanceof \DateTimeInterface) {
             return;
         }
