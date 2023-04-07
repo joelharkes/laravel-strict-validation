@@ -30,9 +30,16 @@ $this->validate($request, ['input' => [new ValidCarbon()]); // input is always C
 ```
 
 
-### Rules:
+### Available Rules:
 
-- ValidFloat
+```php
+namespace Joelharkes\LaravelStrictValidation\Rules;
+new ValidFloat();
+new ValidDatetime();
+new ValidInteger();
+new ValidIn(); // make sure value is exactly the same as in the given array.
+```
+- 
 - ValidDatetime
 - ValidDate
 
