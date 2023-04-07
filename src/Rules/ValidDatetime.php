@@ -32,10 +32,12 @@ class ValidDatetime extends BaseRule implements \JsonSerializable
             $datetime = new Carbon($value);
         } catch (\Throwable) {
             $fail($attribute, $this->translate('validation.datetime'));
+
             return;
         }
         if (!checkdate($datetime->month, $datetime->day, $datetime->year)) {
             $fail($attribute, $this->translate('validation.datetime'));
+
             return;
         }
         $this->modifyValue($attribute, $datetime);

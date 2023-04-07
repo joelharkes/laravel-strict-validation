@@ -10,6 +10,10 @@ class ValidString extends BaseRule implements \JsonSerializable
     {
     }
 
+    public function __toString()
+    {
+        return 'string';
+    }
 
     public function validate(string $attribute, mixed $value, \Closure $fail): void
     {
@@ -25,10 +29,5 @@ class ValidString extends BaseRule implements \JsonSerializable
         return [
             'name' => 'string',
         ];
-    }
-
-    public function __toString()
-    {
-        return 'string';
     }
 }

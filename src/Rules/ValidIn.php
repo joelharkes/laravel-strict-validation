@@ -15,6 +15,11 @@ class ValidIn extends BaseRule implements \JsonSerializable
     {
     }
 
+    public function __toString()
+    {
+        return 'in:'.LazyCollection::make($this->values)->implode(',');
+    }
+
     public function validate(string $attribute, mixed $value, \Closure $fail): void
     {
         if (is_null($value)) {
@@ -42,10 +47,5 @@ class ValidIn extends BaseRule implements \JsonSerializable
             'name' => 'in',
             'values' => $this->values,
         ];
-    }
-
-    public function __toString()
-    {
-        return 'in:' . LazyCollection::make($this->values)->implode(',');
     }
 }
