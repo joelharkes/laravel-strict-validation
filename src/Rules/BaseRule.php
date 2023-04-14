@@ -27,8 +27,12 @@ abstract class BaseRule implements ValidationRule, DataAwareRule, ValidatorAware
 
     protected function modifyValue(string $attribute, mixed $value): void
     {
-        Arr::set($this->data, $attribute, $value);
-        $this->validator->setData($this->data);
+        if (method_exists($this->validator, 'setValue')) {
+            $this->validator->setValue($attribute, $value);
+        } else {
+            Arr::set($this->data, $attribute, $value);
+            $this->validator->setData($this->data);
+        }
     }
 
     protected function translate(string $key, array $replacements = []): string|array
