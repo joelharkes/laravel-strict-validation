@@ -29,6 +29,13 @@ class ValidEnumTest extends BaseTest
         new ValidEnum(self::class);
     }
 
+    public function testAcceptsNulls(): void
+    {
+        $validator = $this->validaterFor(new ValidEnum(StringEnum::class), null);
+        $this->assertTrue($validator->passes());
+        $this->assertNull($validator->validated()['input']);
+    }
+
     public function testAcceptsStringForEnum(): void
     {
         $validator = $this->validaterFor(new ValidEnum(StringEnum::class), 'a');
