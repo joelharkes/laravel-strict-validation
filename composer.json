@@ -10,7 +10,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "Joelharkes\\LaravelStrictValidation\\Tests\\": "tests"
+            "Joelharkes\\LaravelStrictValidation\\Tests\\": "tests/"
         }
     },
     "authors": [
