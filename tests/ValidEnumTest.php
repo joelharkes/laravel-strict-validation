@@ -11,13 +11,6 @@ use Joelharkes\LaravelStrictValidation\Rules\ValidEnum;
  */
 class ValidEnumTest extends BaseTest
 {
-    protected function setUp(): void
-    {
-        parent::setUp();
-        $this->iniSet('zend.assertions', '1');
-        $this->iniSet('assert.exception', '1');
-    }
-
     public function testThrowsOnRandomString(): void
     {
         $this->expectException(\AssertionError::class);

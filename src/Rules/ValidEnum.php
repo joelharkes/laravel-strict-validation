@@ -9,7 +9,9 @@ class ValidEnum extends BaseRule
      */
     public function __construct(public readonly string $enumClass)
     {
-        assert(enum_exists($enumClass));
+        if (!enum_exists($enumClass)) {
+            throw new \AssertionError("Invalid enum class: {$enumClass}");
+        }
     }
 
     public function validate(string $attribute, mixed $value, \Closure $fail): void
