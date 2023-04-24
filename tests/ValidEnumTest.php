@@ -14,6 +14,7 @@ class ValidEnumTest extends BaseTest
     protected function setUp(): void
     {
         parent::setUp();
+        $this->iniSet('zend.assertions', '1');
         $this->iniSet('assert.exception', '1');
     }
 
